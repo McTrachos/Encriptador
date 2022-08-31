@@ -1,0 +1,109 @@
+<DOCTYPE html>
+<html lang="es">
+	<head>
+
+		<meta charset="UTF-8">
+        <title>Encriptador</title>
+        <link rel="stylesheet" href="CSS/style.css">
+
+	</head>
+
+	<body class="background">
+
+		<header>
+			<img src="./img/a.png" alt="">
+		</header>
+
+		<main>
+			<div>
+				<textarea  id="ingresar" class="ingreseTexto" placeholder="Ingresar Mensaje"></textarea>
+			</div>
+
+
+			<div class="recuadro">               
+				<div class="ocultarDos">
+					<textarea id="imprimir" class="ingreseTexto-2" disabled="true"></textarea>
+					<button class=" btn btn-copiar" onclick="copiar()">Copiar</button>
+				</div>
+
+				<div class="ocultar">
+					<img class="munheco"src="./img/munheco.png" alt="">
+					<p class="recuadro-p1">Ningún mensaje fue encontrado</p>
+					<p class="recuadro-p2">Ingresa el texto que desees encriptar o desencriptar.</p>
+				</div>
+
+            </div>
+
+			<div>
+				<p class="recuadro-p3">sólo letras minúsculas y sin tildes</p>
+				<ul class="botones">
+					<li>
+						<button class="btn btn-blue" onclick=encriptar()>Encriptar</button>
+					</li>
+					<li>
+						<button class="btn btn-white" onclick=desencriptar()>Desencriptar</button>
+					</li>
+
+				</ul>
+			</div>
+
+		</main>
+
+	</body>
+	
+	<footer>
+		<h1></h1>
+	</footer>
+
+</html>
+
+<script>
+	document.querySelector(".ocultarDos").style.display = "none";
+	document.querySelector(".ocultar").style.display = "initial";
+
+	var textoEncriptar = document.querySelector("#ingresar");
+	var textoChange = document.querySelector("#imprimir");
+
+	function encriptar(){
+		var textoChange = textoEncriptar.value;
+		var lowerCase = textoChange.toLowerCase(); //Cambia el input a sólo minúsculas
+		textoEncriptar.value = lowerCase; //Pasa las minúsculas a la variable inicial
+
+		var textoChange = textoEncriptar.value.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat"); //reemplaza vocales
+		//la A debe ir después de la I, de lo contrario, la A se traduce como AIMES
+
+		imprimir.value = textoChange; //pasa el mensaje inicial a la segunda columna
+		ingresar.value="" //vacía la variable
+
+		//---------------------Ocultar Datos----------------//
+
+		document.querySelector(".ocultar").style.display = "none";
+		document.querySelector(".ocultarDos").style.display = "initial";
+
+
+	}
+
+	function desencriptar(){
+		var textoChange = textoEncriptar.value.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g, "u");
+		//reemplaza palabras por las vocales nuevamente
+
+		imprimir.value=textoChange
+		//ingresa el texto en la columna principal
+
+		textoEncriptar.value=""
+		//deja vacía la columna
+		//---------------------Ocultar Datos----------------//
+
+		document.querySelector(".ocultar").style.display = "none";
+		document.querySelector(".ocultarDos").style.display = "initial";
+	}
+
+	function copiar(){
+		var copiarElemento = document.querySelector("#imprimir");
+		copiarElemento.select();
+		navigator.clipboard.writeText(copiarElemento.value);
+	}
+
+
+</script>
+    

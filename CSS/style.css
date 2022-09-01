@@ -3,20 +3,29 @@
     src: url(fuentes/inter.ttf);
 }
 
-.background{
+body{
     position: relative;
-    width: 1440px;
-    height: 1024px;
-
     background: #F3F5FC;   
+    align-items: row;
+}
+
+header img{
+    width: 30px;
+}
+
+main{
+    flex-direction: row;
+    max-height: 500px;
+    display: inline-block;
 }
 .munheco{
-    padding-top: 50%;
+    padding-top: 20%;
 }
+
 .ingreseTexto{
-    position: relative;
-    width: 1000px;
-    height: 540px;
+    align-items: center;
+    min-width: 300px;
+    min-height: 500px;
     left: 0px;
     top: 5px;
     background: #F3F5FC;
@@ -26,31 +35,29 @@
     border: none;
     resize:none;
     color: #0A3871;
-
 }
+
 .ingreseTexto-2{
-    position: relative;
+    align-items:flex-end;
+    height: 300px;
     width: 300px;
-    height: 600px;
-    left: 0px;
-    top: 5px;
     background: #FFFFFF;
     font-weight: 400;
     font-size: 32px;
     margin: 30px;
+    padding: 3%;
     border: none;
     resize:none;
     color: #0A3871;
-
 }
 
 .recuadro{
-    position: absolute;
+    position:absolute;
+    margin: auto;
     width: 400px;
-    height: 800px;
-    left: 100%;
-    top: 40px;
-
+    height: 700px;
+    left: 60%;
+    top: 10%;
     background: #FFFFFF;
 
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
@@ -59,9 +66,6 @@
     width: 336px;
     text-align: center;
 
-    flex: none;
-    align-self: stretch;
-    flex-grow: 0;
 }
 .recuadro-p1{
     height: 10px;
@@ -69,11 +73,7 @@
     font-size: 30px;
     line-height: 120%;
     padding-top: 20%;
-
     color: #343A40;
-
-    order: 0;
-
 }
 
 .recuadro-p2{
@@ -81,19 +81,18 @@
 
     font-weight: 400;
     font-size: 20px;
-    line-height: 150%;
+    line-height: 100%;
     padding-top: 10%;
-
     color: #495057;
-
-    order: 1;
 }
 .recuadro-p3{
+    height: 100px;
     font-size: 20px;
     height: 48px;
     text-align: left;
     padding-left: 50px;
     color: #495057;
+
 
 }
 
@@ -126,22 +125,17 @@
 
 .btn-blue{
     color: white;
-
     background: #0A3871;
     order: 0;
 }
 
 .btn-white{
     box-sizing: border-box;
-
     color: #0A3871;
-
     background: #D8DFE8;
     border: 1px solid #0A3871;
     order: 1;
-
 }
-
 .btn-copiar{
     gap: 8px;
     color: #0A3871;
@@ -150,8 +144,27 @@
     width: 320px;
     height: 67px;
     left: 8px;
-    top: 710px;
+    top: 610px;
     font-size: 16px;
     border: 1px solid #0A3871;
     border-radius: 24px;
+}
+
+.size{
+    display: inline-block;
+    height: 100px;
+}
+
+@media (max-width: 1240px){
+    .flex{
+        flex-direction: column;
+        align-items: flex-start;
+        left: 0%;
+    }
+
+    .recuadro{
+        position: relative;
+
+        
+    }
 }
